@@ -75,9 +75,8 @@ def check_password(password):
             Boolean value
     """
 
-    pattern = r'^(?=.*[A-Z])(?=.*\d).{8,}$'
+    pattern = r'^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%+&*-]).{8,}$'
     if re.fullmatch(pattern,password):
-        print('Password is Valid')
         return True
     else:
         print('Invalid Password')
@@ -91,7 +90,7 @@ def main():
     mobile_number = input('Enter mobile number with country code (Eg: 91 9812345123): ')
     password = input('Enter Password (minimum 8 characters): ')
     if validate_first_name(first_name) and validate_last_name(last_name) and validate_email(email) and validate_mobile(mobile_number) and check_password(password):
-        print(f'Full Name is : {first_name} {last_name}')
+        print(f'Full Name : {first_name} {last_name}')
         print(f'Email ID: {email}')
         print(f'Mobile Number: +{mobile_number}')
   
