@@ -59,9 +59,8 @@ def validate_mobile(mobile_number):
     """
 
     pattern = r'^[0-9]{2,} [0-9]{10}$'
-    if mobile_number.isdigit():
-        if re.fullmatch(pattern,mobile_number):
-            return True
+    if re.fullmatch(pattern,mobile_number):
+        return True
     else:
         print('Invalid mobile number')
         return False
@@ -76,7 +75,7 @@ def check_password(password):
             Boolean value
     """
 
-    pattern = r'^(?=.*[A-Z]).{8,}$'
+    pattern = r'^(?=.*[A-Z])(?=.*\d).{8,}$'
     if re.fullmatch(pattern,password):
         print('Password is Valid')
         return True
@@ -94,7 +93,7 @@ def main():
     if validate_first_name(first_name) and validate_last_name(last_name) and validate_email(email) and validate_mobile(mobile_number) and check_password(password):
         print(f'Full Name is : {first_name} {last_name}')
         print(f'Email ID: {email}')
-        print(f'Mobile Number: {mobile_number}')
+        print(f'Mobile Number: +{mobile_number}')
   
 if __name__ == "__main__":
     main()
