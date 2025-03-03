@@ -46,15 +46,32 @@ def validate_email(email):
     else:
         print('Invalid email address')
 
+def validate_mobile(mobile_number):
+    """
+        Description:
+            Funtion to check if the mobile number entered is valid or not
+        Parameters:
+            mobile number
+        Return:
+            None
+    """
+
+    pattern = r'^[0-9]{2,} [0-9]{10}$'
+    if re.fullmatch(pattern,mobile_number):
+        print('Valid mobile number')
+    else:
+        print('Invalid mobile number')
 
 def main():
 
     first_name = input('Enter First Name: ')
     last_name = input('Enter Last Name: ')
     email = input('Enter Email address: ')
+    mobile_number = input('Enter mobile number with country code (Eg: 91 9812345123): ')
     validate_first_name(first_name) 
     validate_last_name(last_name)
     validate_email(email)
+    validate_mobile(mobile_number)
   
 
 if __name__ == "__main__":
