@@ -30,12 +30,31 @@ def validate_last_name(input_string):
     else:
         print('Invalid Last Name')
 
+def validate_email(email):
+    """
+        Description:
+            Funtion to check if the email entered is valid or not
+        Parameters:
+            email
+        Return:
+            None
+    """
+
+    pattern = r'^[A-Za-z0-9._%+-]+@[A-Za-z.]+\.[A-Za-z]{2,}$'
+    if re.fullmatch(pattern,email):
+        print('Valid email address')
+    else:
+        print('Invalid email address')
+
+
 def main():
 
     first_name = input('Enter First Name: ')
     last_name = input('Enter Last Name: ')
+    email = input('Enter Email address: ')
     validate_first_name(first_name) 
     validate_last_name(last_name)
+    validate_email(email)
   
 
 if __name__ == "__main__":
