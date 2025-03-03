@@ -59,9 +59,8 @@ def validate_mobile(mobile_number):
     """
 
     pattern = r'^[0-9]{2,} [0-9]{10}$'
-    if mobile_number.isdigit():
-        if re.fullmatch(pattern,mobile_number):
-            return True
+    if re.fullmatch(pattern,mobile_number):
+        return True
     else:
         print('Invalid mobile number')
         return False
