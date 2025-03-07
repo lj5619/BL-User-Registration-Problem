@@ -13,7 +13,7 @@ def validate_first_name(input_string):
     if re.fullmatch(pattern,input_string):
         return True
     else:
-        print('Invalid First Name')
+        print('Invalid First Name \n First Name should start with capital letter')
         return False
 
 def validate_last_name(input_string):
@@ -29,7 +29,7 @@ def validate_last_name(input_string):
     if re.fullmatch(pattern,input_string):
         return True
     else:
-        print('Invalid Last Name')
+        print('Invalid Last Name \n Last Name should start with capital letter')
         return False
 def validate_email(email):
     """
@@ -84,16 +84,16 @@ def check_password(password):
 
 def main():
 
-    first_name = input('Enter First Name: ')
-    last_name = input('Enter Last Name: ')
-    email = input('Enter Email address: ')
-    mobile_number = input('Enter mobile number with country code (Eg: 91 9812345123): ')
-    password = input('Enter Password (minimum 8 characters): ')
-    if validate_first_name(first_name) and validate_last_name(last_name) and validate_email(email) and validate_mobile(mobile_number) and check_password(password):
-        print(f'Full Name : {first_name} {last_name}')
-        print(f'Email ID: {email}')
-        print(f'Mobile Number: +{mobile_number}')
-  
+    while not validate_first_name(first_name := input('First Name: ')): pass
+    while not validate_last_name(last_name := input('Last Name: ')): pass
+    while not validate_email(email := input('Email ID: ')): pass
+    while not validate_mobile(mobile_number := input('Enter mobile number with country code (Eg: 91 9812345123):' )): pass
+    while not check_password(password := input('Enter Password (minimum 8 characters): ')): pass
+    
+    print (f'------------------------------ Welcome {first_name}------------------------------------')
+    print(f'Full Name : {first_name} {last_name}')
+    print(f'Email ID: {email}')
+    print(f'Mobile Number: +{mobile_number}')
+
 if __name__ == "__main__":
     main()
-
