@@ -76,7 +76,9 @@ def check_password(password):
     """
 
     pattern = r'^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%+&*-]).{8,}$'
-    if re.fullmatch(pattern,password):
+    special_chars = "!@#$%+&*-"
+    count = sum(1 for char in password if char in special_chars)
+    if re.fullmatch(pattern,password) and count == 1:
         return True
     else:
         print('Invalid Password')
